@@ -16,21 +16,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Component
 public class AspectDemo {
 
-	private final static Logger logger = LoggerFactory.getLogger(AspectDemo.class);
+    private final static Logger logger = LoggerFactory.getLogger(AspectDemo.class);
 
-	@Before("@annotation(requestMapping)") // 拦截被TestAnnotation注解的方法；如果你需要拦截指定package指定规则名称的方法，可以使用表达式execution(...)
-	public void beforeTest(JoinPoint point, RequestMapping requestMapping) throws Throwable {
-		logger.debug("before RequestMapping:{}", requestMapping);
+    @Before("@annotation(requestMapping)") // 拦截被TestAnnotation注解的方法；如果你需要拦截指定package指定规则名称的方法，可以使用表达式execution(...)
+    public void beforeTest(JoinPoint point, RequestMapping requestMapping) throws Throwable {
+        logger.debug("before RequestMapping:{}", requestMapping);
 
-	}
+    }
 
-	@After("@annotation(requestMapping)")
-	public void afterTest(JoinPoint point, RequestMapping requestMapping) {
-		logger.debug("after RequestMapping:{}", requestMapping);
-	}
+    @After("@annotation(requestMapping)")
+    public void afterTest(JoinPoint point, RequestMapping requestMapping) {
+        logger.debug("after RequestMapping:{}", requestMapping);
+    }
 
-	@Around("@annotation(requestMapping)")
-	public void aroundTest(JoinPoint point, RequestMapping requestMapping) {
-		logger.debug("around RequestMapping:{}", requestMapping);
-	}
+    @Around("@annotation(requestMapping)")
+    public void aroundTest(JoinPoint point, RequestMapping requestMapping) {
+        logger.debug("around RequestMapping:{}", requestMapping);
+    }
 }

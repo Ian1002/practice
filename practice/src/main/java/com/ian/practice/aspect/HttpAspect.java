@@ -14,39 +14,40 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class HttpAspect {
- 
+
     private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
- 
+
     @Pointcut(value = "execution(public * com.ian.learning.controller.HelloController.*(..))")
-    public void p(){}
- 
+    public void p() {
+    }
+
     @Before("p()")
-    public void doBefore(JoinPoint joinPoint){
+    public void doBefore(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
- 
+
         //URL
-        logger.warn("URL={}",request.getRequestURL());
- 
+        logger.warn("URL={}", request.getRequestURL());
+
         //Method
-        logger.warn("Method={}",request.getMethod());
- 
+        logger.warn("Method={}", request.getMethod());
+
         //IP
-        logger.warn("IP={}",request.getRemoteAddr());
- 
+        logger.warn("IP={}", request.getRemoteAddr());
+
         //Class.Method
-        logger.warn("CLass.Method={}",joinPoint.getSignature().getDeclaringTypeName()+"."+joinPoint.getSignature().getName()+"()");
- 
+        logger.warn("CLass.Method={}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() + "()");
+
         //Args
-        logger.warn("Args={}",joinPoint.getArgs());
- 
+        logger.warn("Args={}", joinPoint.getArgs());
+
         //...其余操作
- 
+
     }
- 
+
     @After("p()")
-    public void doAfter(){
-        logger.warn("HttpAspect doAfter Running : "+new Date().getTime());
+    public void doAfter() {
+        logger.warn("HttpAspect doAfter Running : " + new Date().getTime());
     }
- 
+
 }

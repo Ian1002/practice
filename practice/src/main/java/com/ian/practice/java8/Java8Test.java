@@ -5,21 +5,21 @@ import java.util.stream.Stream;
 
 public class Java8Test {
 
-	public static boolean test(String param) {
+    public static boolean test(String param) {
 
-		System.out.println("param : " + param);
-		return true;
-	}
+        System.out.println("param : " + param);
+        return true;
+    }
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		// params.forEach(Java8Test::test);
+        // params.forEach(Java8Test::test);
 
-		// Consumer<String> methodParam = Java8Test::test;
-		// params.forEach(param -> methodParam.accept(param));
+        // Consumer<String> methodParam = Java8Test::test;
+        // params.forEach(param -> methodParam.accept(param));
 
-		// int ids[] = new int[] { 1, 2, 3, 4 };
-		// Arrays.stream(ids).forEach(System.out::println);
+        // int ids[] = new int[] { 1, 2, 3, 4 };
+        // Arrays.stream(ids).forEach(System.out::println);
 
 //		Stream.of(5, 4, 6, 2, 1, 3).sorted().forEach(System.out::println);
 
@@ -34,12 +34,12 @@ public class Java8Test {
 //				return 1;
 //			}
 //		};
-		
-		Comparator<String> sortByName = (String s1, String s2) -> (s1.compareTo(s2));  
+
+        Comparator<String> sortByName = (String s1, String s2) -> (s1.compareTo(s2));
 
 //		Comparator<Integer> comparator = (Integter o1, Integer o2) -> (1);
 
 //		Stream.of(5, 4, 6, 2, 1, 3).sorted(comparator).forEach(System.out::println);
 
-	}
+    }
 }
