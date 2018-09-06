@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ian.practice.db.mapper.SysResourceMapper">
+    <resultMap id="BaseResultMap" type="com.ian.practice.db.entity.SysResource">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="menu_id" jdbcType="VARCHAR" property="menuId"/>
+        <result column="perm_name" jdbcType="VARCHAR" property="permName"/>
+        <result column="perm" jdbcType="VARCHAR" property="perm"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+    </resultMap>
+</mapper>

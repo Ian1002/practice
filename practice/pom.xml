@@ -7,6 +7,28 @@
 
     <properties>
         <basedir>${basedir}</basedir>
+
+        <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
+        <druid.version>1.0.26</druid.version>
+        <commons-io.version>2.5</commons-io.version>
+        <fastjson.version>1.2.17</fastjson.version>
+        <jedis.version>2.9.0</jedis.version>
+        <aspectjweaver.version>1.8.13</aspectjweaver.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
+
+        <mybatis-spring-boot-starter.version>1.1.1</mybatis-spring-boot-starter.version>
+        <mapper-spring-boot-starter.version>1.0.0</mapper-spring-boot-starter.version>
+        <pagehelper-spring-boot-starter.version>1.0.0</pagehelper-spring-boot-starter.version>
+        <mapper-base.version>1.0.5</mapper-base.version>
+        <mybatis-generator-maven-plugin.version>1.3.4</mybatis-generator-maven-plugin.version>
+        <mapper.version>3.3.9</mapper.version>
+
+        <dubbo.version>2.5.7</dubbo.version>
+        <zkclient.version>0.10</zkclient.version>
+        <zookeeper.version>3.4.11</zookeeper.version>
+        <netty.version>3.10.5.Final</netty.version>
+
+        <zring-rad.version>1.0.0-SNAPSHOT</zring-rad.version>
     </properties>
 
     <parent>
@@ -16,6 +38,13 @@
     </parent>
 
     <dependencies>
+
+        <dependency>
+            <groupId>cn.net.zring.rad</groupId>
+            <artifactId>rad-api</artifactId>
+            <version>${zring-rad.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
@@ -35,45 +64,40 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.11</version>
+            <version>${mysql-connector-java.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.26</version>
+            <version>${druid.version}</version>
         </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.5</version>
+            <version>${commons-io.version}</version>
         </dependency>
 
         <!--mybatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.1.1</version>
+            <version>${mybatis-spring-boot-starter.version}</version>
         </dependency>
         <!--mapper -->
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>1.0.0</version>
+            <version>${mapper-spring-boot-starter.version}</version>
         </dependency>
         <!--pagehelper -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.0.0</version>
+            <version>${pagehelper-spring-boot-starter.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.caucho</groupId>
-            <artifactId>hessian</artifactId>
-            <version>4.0.38</version>
-        </dependency>
         <!-- test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -84,7 +108,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.17</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <dependency>
@@ -100,27 +124,105 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>2.9.0</version>
+            <version>${jedis.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.8.13</version>
+            <version>${aspectjweaver.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-base</artifactId>
-            <version>1.0.5</version>
+            <version>${mapper-base.version}</version>
             <scope>compile</scope>
         </dependency>
+
+        <!--Dubbo start -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>${zkclient.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.zookeeper</groupId>
+                    <artifactId>zookeeper</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>${netty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${zookeeper.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>jline</groupId>
+                    <artifactId>jline</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--Dubbo end -->
     </dependencies>
 
     <build>
@@ -128,7 +230,7 @@
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.4</version>
+                <version>${mybatis-generator-maven-plugin.version}</version>
                 <configuration>
                     <configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile>
                     <overwrite>true</overwrite>
@@ -138,12 +240,12 @@
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
-                        <version>8.0.11</version>
+                        <version>${mysql-connector-java.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>tk.mybatis</groupId>
                         <artifactId>mapper</artifactId>
-                        <version>3.3.9</version>
+                        <version>${mapper.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
