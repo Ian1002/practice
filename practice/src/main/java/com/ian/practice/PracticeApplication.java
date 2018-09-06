@@ -7,6 +7,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
+/**
+ * PracticeApplication
+ *
+ * @author YangJing
+ * @date 2018/9/6 11:26
+ */
 @ComponentScan(basePackages = {"com.ian.practice"})
 @MapperScan("com.ian.practice.db.mapper")
 @ImportResource(locations = {"classpath:spring-dubbo.xml"})
