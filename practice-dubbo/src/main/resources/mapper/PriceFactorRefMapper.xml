@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ian.practice.db.mapper.PriceFactorRefMapper">
+    <resultMap id="BaseResultMap" type="com.ian.practice.db.entity.PriceFactorRef">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="pf_id" jdbcType="BIGINT" property="pfId"/>
+        <result column="type" jdbcType="TINYINT" property="type"/>
+        <result column="ref_pf_id" jdbcType="BIGINT" property="refPfId"/>
+        <result column="digit" jdbcType="DECIMAL" property="digit"/>
+        <result column="symbol" jdbcType="TINYINT" property="symbol"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+    </resultMap>
+</mapper>
