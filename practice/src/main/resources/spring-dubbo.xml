@@ -15,7 +15,7 @@
     <dubbo:provider timeout="5000" retries="0"/>
     <dubbo:consumer timeout="5000" retries="0"/>
 
-    <dubbo:reference id="materialProduceRemoteService"
-                     interface="cn.net.zring.rad.material.service.MaterialProduceRemoteService" check="false"/>
+    <dubbo:reference id="helloRemoteService" interface="com.ian.practice.service.HelloRemoteService" check="false"/>
+
 
 </beans>

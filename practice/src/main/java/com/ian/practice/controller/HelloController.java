@@ -1,21 +1,14 @@
 package com.ian.practice.controller;
 
-import cn.net.zring.rad.material.model.ProduceCraft;
-import cn.net.zring.rad.material.model.ProduceTask;
-import cn.net.zring.rad.material.service.MaterialProduceRemoteService;
-import com.alibaba.fastjson.JSON;
-import com.ian.practice.util.ResultData;
-import com.ian.practice.util.ResultDataFactory;
-import com.sun.xml.internal.txw2.output.ResultFactory;
+import com.alibaba.dubbo.remoting.TimeoutException;
+import com.ian.practice.service.HelloRemoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * 测试Controller
@@ -27,23 +20,21 @@ import java.util.List;
 public class HelloController extends BaseController {
 
     @Resource
-    private MaterialProduceRemoteService materialProduceRemoteService;
+    private HelloRemoteService helloRemoteService;
 
-    @GetMapping("/hello")
-    public String hello(Model model) {
-        logger.debug("hello Model:{}", model);
+    @GetMapping("/hello/{name}")
+    public String hello(@PathVariable String name) {
+        logger.debug("hello name:{}", name);
 
-        return "hello ian";
+        String result = null;
+
+        try {
+
+            result = helloRemoteService.hello(name);
+        } catch (RuntimeException e) {
+            result = "RuntimeException";
+        }
+
+        return result;
     }
-
-    @GetMapping("/task/{materialCode}")
-    public ResultData dubboTest(@PathVariable String materialCode) {
-        logger.debug("dubboTest");
-
-        List<ProduceTask> tasks = materialProduceRemoteService.getMaterialProduceTask(1L, materialCode);
-        logger.debug("tasks:{}", JSON.toJSONString(tasks));
-
-        return ResultDataFactory.getSuccess(tasks);
-    }
-
 }

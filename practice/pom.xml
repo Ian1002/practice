@@ -3,10 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ian</groupId>
     <artifactId>practice</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <properties>
         <basedir>${basedir}</basedir>
+
+        <practice-dubbo-api.version>0.0.1-SNAPSHOT</practice-dubbo-api.version>
 
         <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
         <druid.version>1.0.26</druid.version>
@@ -27,8 +30,6 @@
         <zkclient.version>0.10</zkclient.version>
         <zookeeper.version>3.4.11</zookeeper.version>
         <netty.version>3.10.5.Final</netty.version>
-
-        <zring-rad.version>1.0.0-SNAPSHOT</zring-rad.version>
     </properties>
 
     <parent>
@@ -40,9 +41,9 @@
     <dependencies>
 
         <dependency>
-            <groupId>cn.net.zring.rad</groupId>
-            <artifactId>rad-api</artifactId>
-            <version>${zring-rad.version}</version>
+            <groupId>com.ian.practice</groupId>
+            <artifactId>practice-dubbo-api</artifactId>
+            <version>${practice-dubbo-api.version}</version>
         </dependency>
 
         <dependency>
