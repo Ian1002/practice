@@ -29,12 +29,10 @@ public class HelloController extends BaseController {
         String result = null;
 
         try {
-
             result = helloRemoteService.hello(name);
         } catch (RuntimeException e) {
             result = "RuntimeException";
         }
-
         return result;
     }
 }
