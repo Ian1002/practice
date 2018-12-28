@@ -39,7 +39,7 @@ public interface UserDao {
      *
      * @return
      */
-    List<User> list(User user,Pageable pageable);
+    List<User> list(User user, Pageable pageable);
 
     /**
      * 查询
