@@ -6,7 +6,7 @@
 	<groupId>com.alibaba</groupId>
 	<artifactId>dubbo-admin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>dubbo-admin</name>
 	<description>Demo project for Spring Boot</description>
@@ -67,14 +67,14 @@
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+	<!--<build>-->
+		<!--<plugins>-->
+			<!--<plugin>-->
+				<!--<groupId>org.springframework.boot</groupId>-->
+				<!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+			<!--</plugin>-->
+		<!--</plugins>-->
+	<!--</build>-->
 
 
 </project>
